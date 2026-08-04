@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2026-08-03)
+## Unreleased (2026-08-04)
 
 <section class="features">
 
@@ -22,6 +22,7 @@
 
 <details>
 
+-   [`a4682f5`](https://github.com/stdlib-js/stdlib/commit/a4682f5c77b0dceac093817e9bdeec8ef4770e04) - **docs:** fix description [(#13894)](https://github.com/stdlib-js/stdlib/pull/13894) _(by Philipp Burckhardt, Athan Reines)_
 -   [`36bce0b`](https://github.com/stdlib-js/stdlib/commit/36bce0ba2aab94ae23c27c0a59ec9942727bbc92) - **feat:** add `ml/base/loss/float64/squared-hinge-gradient` [(#13192)](https://github.com/stdlib-js/stdlib/pull/13192) _(by Nakul Krishnakumar, Athan Reines)_
 
 </details>
@@ -34,10 +35,11 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 3 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
 -   Nakul Krishnakumar
+-   Philipp Burckhardt
 
 </section>
 
