@@ -46,7 +46,7 @@ The [squared hinge loss gradient][squared-hinge-loss-gradient] is defined as
 ```
 
 <!-- <div class="equation" align="center" data-raw-text="\frac{\partial \ell}{\partial w} = \begin{cases} -2y(t - yp)x &amp; \text{if } yp \leq t \\ 0 &amp; \text{otherwise} \end{cases}" data-equation="eq:squared_hinge_loss_gradient">
-    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@e72895028e08bd5faa19a580deaf380c3ff38e42/lib/node_modules/@stdlib/ml/base/loss/float64/squared-hinge-gradient/docs/img/equation_squared_hinge_loss_gradient.svg" alt="Equation for the squared hinge loss gradient.">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@b51ebff8a15e9d9cf8d9bb64d569d709f45fc994/lib/node_modules/@stdlib/ml/base/loss/float64/squared-hinge-gradient/docs/img/equation_squared_hinge_loss_gradient.svg" alt="Equation for the squared hinge loss gradient.">
     <br>
 </div> -->
 
@@ -56,38 +56,32 @@ The [squared hinge loss gradient][squared-hinge-loss-gradient] is defined as
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/ml-base-loss-float64-squared-hinge-gradient
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-squaredHingeGradient = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-loss-float64-squared-hinge-gradient@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var squaredHingeGradient = require( 'path/to/vendor/umd/ml-base-loss-float64-squared-hinge-gradient/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-loss-float64-squared-hinge-gradient@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.squaredHingeGradient;
-})();
-</script>
+var squaredHingeGradient = require( '@stdlib/ml-base-loss-float64-squared-hinge-gradient' );
 ```
 
 #### squaredHingeGradient( x, t, y, p )
@@ -145,16 +139,11 @@ v = squaredHingeGradient( 2.4, 1.0, 0.453, 0.76 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-sample@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ml-base-loss-float64-squared-hinge-gradient@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var uniform = require( '@stdlib/random-array-uniform' );
+var sample = require( '@stdlib/random-sample' );
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var squaredHingeGradient = require( '@stdlib/ml-base-loss-float64-squared-hinge-gradient' );
 
 var y = sample( [ -1.0, 1.0 ], {
     'size': 100
@@ -167,11 +156,6 @@ var t = uniform( 100, 0.0, 5.0, opts );
 var p = uniform( 100, -5.0, 5.0, opts );
 
 logEachMap( 'squaredHingeGradient(%0.4f, %0.4f, %0.4f, %0.4f) = %0.4f', x, t, y, p, squaredHingeGradient );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -180,7 +164,94 @@ logEachMap( 'squaredHingeGradient(%0.4f, %0.4f, %0.4f, %0.4f) = %0.4f', x, t, y,
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/ml/base/loss/float64/squared_hinge_gradient.h"
+```
+
+#### stdlib_base_float64_squared_hinge_gradient( x, t, y, p )
+
+Computes the [squared hinge loss gradient][squared-hinge-loss-gradient] with respect to a model parameter.
+
+```c
+double out = stdlib_base_float64_squared_hinge_gradient( 3.0, 1.0, 1.0, 0.782 );
+// returns ~-1.308
+```
+
+The function accepts the following arguments:
+
+-   **x**: `[in] double` input value.
+-   **t**: `[in] double` margin threshold.
+-   **y**: `[in] double` true target value.
+-   **p**: `[in] double` predicted value.
+
+```c
+double stdlib_base_float64_squared_hinge_gradient( const double x, const double t, const double y, const double p );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/ml/base/loss/float64/squared_hinge_gradient.h"
+#include <stdio.h>
+
+int main( void ) {
+    const double x[] = { -10.0, -9.56, -8.67, -7.78, -6.89, 6.89, 7.78, 8.67, 9.56, 10.0 };
+    const double t[] = { 0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0 };
+    const double y[] = { -1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0 };
+    const double p[] = { -5.0, -3.89, -2.78, -1.67, -0.56, 0.56, 1.67, 2.78, 3.89, 5.0 };
+
+    double v;
+    int i;
+    for ( i = 0; i < 10; i++ ) {
+        v = stdlib_base_float64_squared_hinge_gradient( x[ i ], t[ i ], y[ i ], p[ i ] );
+        printf( "squaredHingeGradient(%lf, %lf, %lf, %lf) = %lf\n", x[ i ], t[ i ], y[ i ], p[ i ], v );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
